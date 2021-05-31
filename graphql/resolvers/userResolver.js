@@ -9,7 +9,7 @@ const generateToken = user =>
 		{
 			id: user.id,
 			email: user.email,
-			username: user.userName
+			username: user.username
 		},
 		process.env.JWT_SECRET,
 		{ expiresIn: '1h' }
@@ -17,7 +17,8 @@ const generateToken = user =>
 
 const userResolvers = {
 	Mutation: {
-		async register(_, { registerInput: { username, email, password, confirmPassword } }, context, info) {
+		// Register User
+		register: async (_, { registerInput: { username, email, password, confirmPassword } }, context, info) => {
 			const user = await User.findOne({ username });
 			if (user) {
 				throw new UserInputError('Username is taken', {
@@ -48,7 +49,9 @@ const userResolvers = {
 				token
 			};
 		},
-		async login(_, { username, password }, context, info) {
+
+		// Login User
+		login: async (_, { username, password }, context, info) => {
 			const { valid, errors } = validateLoginInput(username, password);
 			if (!valid) {
 				throw new UserInputError('Error', {

@@ -2,25 +2,21 @@ import mongoose from 'mongoose';
 
 const postSchema = new mongoose.Schema({
 	body: String,
-	username: {
-		type: String
-	},
+	username: String,
 	createdAt: Date,
 	comments: [
 		{
 			body: String,
-			user: {
-				type: mongoose.Schema.Types.ObjectId,
-				ref: 'User'
+			username: {
+				type: String
 			},
 			createdAt: Date
 		}
 	],
 	likes: [
 		{
-			user: {
-				type: mongoose.Schema.Types.ObjectId,
-				ref: 'User'
+			username: {
+				type: String
 			},
 			createdAt: Date
 		}
