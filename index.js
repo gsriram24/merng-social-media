@@ -1,23 +1,11 @@
 import { ApolloServer } from 'apollo-server';
-import gql from 'graphql-tag';
-
 import dotenv from 'dotenv';
+import typeDefs from './graphql/typeDefs.js';
+import resolvers from './graphql/resolvers/index.js';
 import connectDB from './config/db.js';
 
 dotenv.config();
 connectDB();
-
-const typeDefs = gql`
-	type Query {
-		sayHi: String!
-	}
-`;
-
-const resolvers = {
-	Query: {
-		sayHi: () => 'Hello World'
-	}
-};
 
 const server = new ApolloServer({
 	typeDefs,
