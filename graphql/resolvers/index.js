@@ -3,17 +3,21 @@ import postResolvers from './postResolver.js';
 import userResolvers from './userResolver.js';
 
 const resolvers = {
-	Query: {
-		...postResolvers.Query
-	},
-	Mutation: {
-		...userResolvers.Mutation,
-		...postResolvers.Mutation,
-		...commentResolvers.Mutation
-	},
-	Subscription: {
-		...postResolvers.Subscription
-	}
+  Post: {
+    likeCount: parent => parent.likes.length,
+    commentCount: parent => parent.comments.length,
+  },
+  Query: {
+    ...postResolvers.Query,
+  },
+  Mutation: {
+    ...userResolvers.Mutation,
+    ...postResolvers.Mutation,
+    ...commentResolvers.Mutation,
+  },
+  Subscription: {
+    ...postResolvers.Subscription,
+  },
 };
 
 export default resolvers;
