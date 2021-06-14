@@ -7,6 +7,8 @@ const typeDefs = gql`
 		body: String!
 		createdAt: Date!
 		username: String!
+		comments: [Comment]!
+		likes: [Like]!
 	}
 	type User {
 		id: ID!
@@ -14,6 +16,17 @@ const typeDefs = gql`
 		token: String!
 		username: String!
 		createdAt: Date!
+	}
+	type Comment {
+		id: ID!
+		createdAt: Date!
+		username: String!
+		body: String!
+	}
+	type Like {
+		id: ID!
+		createdAt: Date!
+		username: String!
 	}
 	input RegisterInput {
 		username: String!
@@ -31,6 +44,12 @@ const typeDefs = gql`
 		login(username: String!, password: String!): User!
 		createPost(body: String!): Post!
 		deletePost(postId: ID): String!
+		createComment(postId: ID!, body: String!): Post!
+		deleteComment(postId: ID!, commentId: ID!): Post!
+		likePost(postId: ID!): Post!
+	}
+	type Subscription {
+		newPost: Post!
 	}
 `;
 

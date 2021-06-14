@@ -1,3 +1,4 @@
+import commentResolvers from './commentResolver.js';
 import postResolvers from './postResolver.js';
 import userResolvers from './userResolver.js';
 
@@ -7,7 +8,11 @@ const resolvers = {
 	},
 	Mutation: {
 		...userResolvers.Mutation,
-		...postResolvers.Mutation
+		...postResolvers.Mutation,
+		...commentResolvers.Mutation
+	},
+	Subscription: {
+		...postResolvers.Subscription
 	}
 };
 
