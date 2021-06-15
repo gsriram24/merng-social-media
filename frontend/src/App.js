@@ -1,16 +1,21 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
 import Home from './screens/Home';
 import Login from './screens/Login';
 import Register from './screens/Register';
+import MenuBar from './components/MenuBar';
+import { Container } from 'semantic-ui-react';
 const App = () => {
   return (
     <Router>
-      <Router exact path='/' component={Home} />
-      <Router exact path='/login' component={Login} />
-      <Router exact path='/register' component={Register} />
+      <Container>
+        <MenuBar />
+        <Route exact path='/' component={Home} />
+        <Route exact path='/login' component={Login} />
+        <Route exact path='/register' component={Register} />
+      </Container>
     </Router>
   );
 };
