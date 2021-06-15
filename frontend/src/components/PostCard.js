@@ -34,7 +34,7 @@ const PostCard = ({
             {likeCount}
           </Label>
         </Button>
-        <Button as='div' labelPosition='right'>
+        <Button as='div' labelPosition='right' onClick={commentOnPost}>
           <Button basic color='blue'>
             <Icon name='comments' />
           </Button>
