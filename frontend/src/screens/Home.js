@@ -5,13 +5,10 @@ import { Grid } from 'semantic-ui-react';
 import PostCard from '../components/PostCard';
 
 const Home = () => {
-  const {
-    loading,
-    data: { getPosts: posts },
-  } = useQuery(FETCH_POSTS_QUERY);
+  const { loading, data } = useQuery(FETCH_POSTS_QUERY);
 
   return (
-    <Grid columns={3} doubling stackable>
+    <Grid columns={3} stackable>
       <Grid.Row className='page-title'>
         <h1>Recent Posts</h1>
       </Grid.Row>
@@ -19,8 +16,8 @@ const Home = () => {
         {loading ? (
           <h1>Loading posts...</h1>
         ) : (
-          posts &&
-          posts.map(p => (
+          data.getPosts &&
+          data.getPosts.map(p => (
             <Grid.Column key={p.id} style={{ marginBottom: '20px' }}>
               <PostCard post={p} />
             </Grid.Column>
