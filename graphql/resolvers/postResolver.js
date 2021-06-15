@@ -1,4 +1,4 @@
-import { UserInputError } from 'apollo-server';
+import { UserInputError } from 'apollo-server-express';
 import { AuthenticationError } from 'apollo-server-errors';
 import Post from '../../models/PostModel.js';
 import checkAuth from '../../util/auth.js';
@@ -31,6 +31,9 @@ const postResolvers = {
     //Create a post
     createPost: async (_, { body }, context) => {
       const user = checkAuth(context);
+      if (body.trim() === '') {
+        throw new Error('Post body must not be empty');
+      }
       const newPost = new Post({
         body,
         user: user.id,

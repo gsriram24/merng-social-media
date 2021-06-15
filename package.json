@@ -1,21 +1,21 @@
 {
-	"name": "merng-social-media",
-	"version": "1.0.0",
-	"description": "Social Media app using the MERN Stack and GraphQL",
-	"main": "index.js",
-	"type": "module",
-	"scripts": {
-		"dev": "nodemon index.js",
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"author": "G Sriram",
-	"license": "ISC",
-	"dependencies": {
-		"apollo-server": "^2.25.0",
-		"bcryptjs": "^2.4.3",
-		"dotenv": "^10.0.0",
-		"graphql": "^15.5.0",
-		"jsonwebtoken": "^8.5.1",
-		"mongoose": "^5.12.12"
-	}
+  "name": "merng-social-media",
+  "version": "1.0.0",
+  "description": "Social Media app using the MERN Stack and GraphQL",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "G Sriram",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-express": "^2.25.1",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^10.0.0",
+    "graphql": "^15.5.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.12"
+  }
 }
