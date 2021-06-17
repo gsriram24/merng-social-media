@@ -1,9 +1,8 @@
 import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Icon, Label } from 'semantic-ui-react';
-import { AuthContext } from '../context/auth';
 
 const LikeButton = ({ user, id, likes, likeCount }) => {
   const [liked, setLiked] = useState(false);
