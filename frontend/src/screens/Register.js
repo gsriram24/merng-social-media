@@ -15,6 +15,7 @@ const Register = ({ history }) => {
     confirmPassword: '',
     email: '',
   };
+
   const { values, onChange, onSubmit } = useForm(registerUser, initialState);
 
   const [addUser, { loading }] = useMutation(REGISTER_USER, {
